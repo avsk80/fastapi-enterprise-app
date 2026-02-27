@@ -1,0 +1,83 @@
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.intcheck
+*.extcheck
+*.dll
+*.so
+*.dylib
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.whl
+*.egg-info
+
+# Test and coverage
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.mo
+*.pot
+omelette/
+retrace/
+tests/
+traces/
+
+# Project Jupyter/IPython
+.ipynb_checkpoints
+.ipython/
+.jupyter/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.idea/  # Pycharm
+.vscode/  # VS Code
+.import_modules
+*.project
+*.pydevproject
+.cproject
+.settings
+.buildpath
+.vagrant
+
+# Miscellaneous
+.DS_Store
+.hg
+.svn
+CVS
+.bzr
+.gitignore.lock
+
+# PyInstaller
+*.manifest
+*.spec
+_MEI*
+
+# For more information see https://github.com/github/gitignore/blob/main/Python.gitignore
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+
+# Docker
+.env
