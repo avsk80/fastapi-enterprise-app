@@ -6,6 +6,7 @@ from app.api.health import router as health_router
 from app.core.config import settings
 from app.core.logging import setup_logging
 from contextlib import asynccontextmanager
+from app.api.health_db import router as health_db_router
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -36,6 +37,7 @@ def create_app() -> FastAPI:
         lifespan=lifespan  # Hook the lifespan manager here
     )
     app.include_router(health_router)
+    app.include_router(health_db_router)
     return app
 
 app = create_app()
