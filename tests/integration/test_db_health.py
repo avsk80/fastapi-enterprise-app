@@ -1,6 +1,8 @@
 import os
+
 import httpx
 import pytest
+
 
 @pytest.mark.integration
 def test_health_db_ok():
