@@ -32,7 +32,7 @@ coverage.xml
 *.pot
 omelette/
 retrace/
-tests/
+# tests/
 traces/
 
 # Project Jupyter/IPython
