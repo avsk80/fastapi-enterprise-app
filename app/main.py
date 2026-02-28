@@ -1,17 +1,18 @@
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
 from app.api.health import router as health_router
+from app.api.health_db import router as health_db_router
 from app.core.config import settings
 from app.core.logging import setup_logging
-from contextlib import asynccontextmanager
-from app.api.health_db import router as health_db_router
 
 setup_logging()
 logger = logging.getLogger(__name__)
 
-# Using lifespan for startup/shutdown events, which is more flexible and test-friendly than the older on_event approach
+# Using lifespan for startup/shutdown events, which is more flexible and test-friendly than the 
+# older on_event approach
 # def create_app() -> FastAPI:
 #     app = FastAPI(title=settings.app_name)
 
@@ -74,8 +75,12 @@ async def read_items(db = Depends(get_db)):
 
 Why this is better than Middleware
 Startup Logic: The database pool is created only once when the server starts.
-Dependency Logic: The get_db function only runs for routes that actually need the database. Middleware would force every single request—even static files or health checks—to interact with your database logic unnecessarily.
-Clean Teardown: When the server stops, the lifespan ensures all connections are closed properly, preventing "leaked" or orphaned connections. 
+Dependency Logic: The get_db function only runs for routes that actually need the database.
+ Middleware would force every single request—even static files or health checks—to 
+ interact with your database logic unnecessarily.
+Clean Teardown: When the server stops, the lifespan ensures 
+all connections are closed properly, 
+preventing "leaked" or orphaned connections. 
 Medium
 Medium
  +5
